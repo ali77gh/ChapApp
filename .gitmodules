@@ -1,0 +1,3 @@
+[submodule "chap"]
+	path = chap
+	url = https://github.com/ali77gh/Chap.git
