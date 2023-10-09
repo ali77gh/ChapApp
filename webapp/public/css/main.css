@@ -1,0 +1,46 @@
+body {
+  font-family: monospace;
+  color: black;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #1d2021;
+  color: rgb(231, 231, 231);
+  font-size: 2em;
+}
+
+.right {
+  right: 0;
+  background-color: #3a4042;
+  color: rgb(231, 231, 231);
+  font-size: 2em;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fab {
+    background-color: rgb(255, 145, 0);
+    border-radius: 50%;
+    padding: 20px;
+    color: #000;
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 2;
+}

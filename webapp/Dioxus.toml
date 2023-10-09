@@ -1,0 +1,48 @@
+[application]
+
+# App name
+name = "chap app"
+
+# The Dioxus platform to default to
+default_platform = "web"
+
+# `build` & `serve` output path
+out_dir = "dist"
+
+# The static resource path
+asset_dir = "public"
+
+[web.app]
+
+# HTML title tag content
+title = "chap_app"
+
+[web.watcher]
+
+# When watcher is triggered, regenerate the `index.html`
+# reload_html = true
+
+# Which files or dirs will be monitored
+watch_path = ["src", "public"]
+
+# Include style or script assets
+[web.resource]
+
+# CSS style file
+style = ["./css/main.css"]
+
+# Javascript code file
+script = []
+
+[web.resource.dev]
+
+# Same as [web.resource], but for development servers
+
+# CSS style file
+style = []
+
+# JavaScript files
+script = []
+
+# [[web.proxy]]
+# backend = "http://localhost:8000/api/"
