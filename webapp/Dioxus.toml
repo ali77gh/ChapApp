@@ -1,13 +1,13 @@
 [application]
 
 # App name
-name = "chap app"
+name = "chapapp"
 
 # The Dioxus platform to default to
 default_platform = "web"
 
 # `build` & `serve` output path
-out_dir = "dist"
+out_dir = "../docs"
 
 # The static resource path
 asset_dir = "public"
@@ -16,6 +16,9 @@ asset_dir = "public"
 
 # HTML title tag content
 title = "chap_app"
+
+# The application will be served at domain.com/my_application/, so we need to modify the base_path to the path where the application will be served
+base_path = "ChapApp"
 
 [web.watcher]
 
@@ -43,6 +46,3 @@ style = []
 
 # JavaScript files
 script = []
-
-# [[web.proxy]]
-# backend = "http://localhost:8000/api/"
