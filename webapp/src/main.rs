@@ -1,6 +1,8 @@
 #![allow(non_snake_case)]
 // import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
-use dioxus::{prelude::*};
+use dioxus::prelude::*;
+
+use chap::eval::eval;
 
 fn main() {
     // launch the web app
@@ -11,7 +13,7 @@ fn main() {
 fn App(cx: Scope) -> Element {
 
     let output = use_state(cx, || "".to_string());
-    let input = use_state(cx, || "".to_string());
+    let input = use_state(cx, || DEFAULT_SOURCE.to_string());
 
     cx.render(rsx! {
         textarea {
@@ -25,13 +27,39 @@ fn App(cx: Scope) -> Element {
             "{output}"
         },
         div {
-        
             class: "centered fab",
             onclick: move |_| {
-                output.set(input.get().clone());
+                output.set(eval_and_collect_stdout( input.get().clone()));
             },
             "->"
         }
     })
 }
 
+static mut TEMP: String = String::new();
+fn eval_and_collect_stdout(source: String) -> String{
+    unsafe{TEMP.clear()}
+    eval(source, |x|{
+        unsafe{
+            TEMP.push_str(x.clone());
+            TEMP.push_str("\n")
+        }
+    }, ||{ return "".to_string(); }, ||{}, |e|{});
+    unsafe{ TEMP.clone() } 
+}
+
+
+const DEFAULT_SOURCE: &str = r#"
+0 -> $counter
+@loop
+    $counter -> increase
+
+    $counter, 2 -> multiply -> $stars_size
+    10, $counter -> minus -> $space_size
+
+    "*", $stars_size -> repeat -> $stars
+    " ", $space_size -> repeat -> $spaces
+
+    $spaces, $stars -> cat
+@loop, $counter, 10 -> jump if not equal
+"#;
