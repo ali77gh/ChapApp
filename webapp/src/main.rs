@@ -32,6 +32,32 @@ fn App(cx: Scope) -> Element {
                 output.set(eval_and_collect_stdout( input.get().clone()));
             },
             "->"
+        },
+        // top bar
+        div{
+            class: "topbar",
+            div {
+                margin_left:"10px",
+                "Chap online compiler (Powerd by WASM/Dioxus)"
+            },
+            img{
+                src: "https://badgen.net/github/stars/ali77gh/Chap",
+            },
+            img{
+                src: "https://badgen.net/github/last-commit/ali77gh/chap",
+            },
+            img{
+                src: "https://img.shields.io/github/release/ali77gh/chap.svg",
+            },
+            img{
+                src: "https://img.shields.io/github/license/ali77gh/chap.svg",
+            },
+            a {
+                margin_right: "10px",
+                href: "https://github.com/ali77gh/Chap",
+                target: "_blank",
+                "Github"
+            },
         }
     })
 }
@@ -49,8 +75,7 @@ fn eval_and_collect_stdout(source: String) -> String{
 }
 
 
-const DEFAULT_SOURCE: &str = r#"
-0 -> $counter
+const DEFAULT_SOURCE: &str = r#"0 -> $counter
 @loop
     $counter -> increase
 
