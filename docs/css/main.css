@@ -69,6 +69,10 @@ textarea {
   color: rgb(231, 231, 231);
 }
 
+.error{
+  color: rgb(255, 0, 0);
+}
+
 .centered {
   position: absolute;
   top: 50%;
