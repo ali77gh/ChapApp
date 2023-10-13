@@ -36,6 +36,8 @@ pub fn App(cx: Scope) -> Element {
             },
             "->"
         },
-        TopBar(cx)
+        TopBar(cx, move |x|{
+            input.set(crate::data::example::get_by_name(&x).to_string())
+        })
     })
 }

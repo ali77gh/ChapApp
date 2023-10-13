@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-pub fn TopBar(cx: Scope) -> Element {
+pub fn TopBar<'a>(cx: Scope<'a>, cb: impl Fn(String) + 'a) -> Element {
 
     cx.render(rsx! {
         div{
@@ -9,6 +9,10 @@ pub fn TopBar(cx: Scope) -> Element {
                 margin_left:"10px",
                 "Chap online compiler (Powerd by WASM/Dioxus)"
             },
+            ExampleLoader(cx, move |x|{
+                js_runner(&cx, format!("console.log('{}')",x).as_str());
+                cb(x);
+            }),
             img{
                 src: "https://badgen.net/github/stars/ali77gh/Chap",
             },
@@ -29,4 +33,25 @@ pub fn TopBar(cx: Scope) -> Element {
             },
         }
     })
+}
+
+pub fn ExampleLoader<'a>(cx: Scope<'a>, cb: impl Fn(String) + 'a) -> Element {
+
+    cx.render(rsx!{
+        select{
+            onchange: move |evt|{
+                cb(evt.value.clone());
+            },
+            option{ "hello_world" },
+            option{ "count_down" },
+            option{ "christmas_tree" },
+            option{ "is_prime" },
+        }
+    })
+}
+
+fn js_runner(cx: &Scope, js: &str){
+
+    let eval = use_eval(cx);
+    eval(js).unwrap();
 }

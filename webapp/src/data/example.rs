@@ -1,6 +1,6 @@
 
 pub fn get_default() -> &'static str{
-    CHRISTMAS_TREE
+    HELLO_WORLD
 }
 
 pub fn get_by_name(name: &str) -> &'static str{
