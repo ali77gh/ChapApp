@@ -6,23 +6,23 @@ use crate::ui::topbar::TopBar;
 
 pub fn App(cx: Scope) -> Element {
 
-    let output = use_state(cx, || EvalResult::Ok(String::new()));
-    let input = use_state(cx, || crate::data::example::get_default().to_string());
+    let input = use_state(&cx, || crate::data::example::get_default().to_string());
+    let output = use_state(&cx, || EvalResult::Ok(String::new()));
 
-    
-    let (output_text,output_style) = match output.get() {
-        Ok(s) => (s.to_string(),"right split"),
+    let (output_text, output_style) = match output.get() {
+        Ok(s) => (s.to_string(), "right split"),
         Err(e) => (e.error_message().trim().to_owned(), "right split error"),
     };
 
     cx.render(rsx! {
         textarea {
             class: "left split",
+            white_space: "pre-wrap", // make \n works
             oninput: move |evt| {
                 input.set(evt.value.clone());
                 output.set(EvalResult::Ok(String::new()));
             },
-            "{input}"
+            value: "{input}"
         },
         div {
             class: "{output_style}",
@@ -32,12 +32,12 @@ pub fn App(cx: Scope) -> Element {
         div {
             class: "centered fab",
             onclick: move |_| {
-                output.set(eval(input.get().clone()))
+                output.set(eval(input.get().clone()));
             },
             "->"
         },
         TopBar(cx, move |x|{
-            input.set(crate::data::example::get_by_name(&x).to_string())
+            input.set(crate::data::example::get_by_name(&x).to_string());
         })
     })
 }
