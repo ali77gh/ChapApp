@@ -13,7 +13,7 @@ pub fn App(cx: Scope) -> Element {
         Ok(s) => (s.to_string(), "right split"),
         Err(e) => (e.error_message().trim().to_owned(), "right split error"),
     };
-
+    
     cx.render(rsx! {
         textarea {
             class: "left split",
@@ -38,6 +38,7 @@ pub fn App(cx: Scope) -> Element {
         },
         TopBar(cx, move |x|{
             input.set(crate::data::example::get_by_name(&x).to_string());
+            output.set(EvalResult::Ok(String::new()));
         })
     })
 }
