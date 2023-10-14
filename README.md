@@ -13,3 +13,4 @@ Desktop and Web App for playing with Chap programming language.
 - [x] Github link and badge (on web app)
 - [ ] Responsive UI for mobile
 - [ ] PWA
+- [ ] Desktop App [example](https://github.com/DioxusLabs/dioxus/blob/master/examples/router.rs)
