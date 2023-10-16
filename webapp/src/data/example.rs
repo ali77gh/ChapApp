@@ -75,3 +75,40 @@ pub const CHRISTMAS_TREE: &str = r#" // Editable
     $spaces, $stars -> cat
 @loop, $counter, 10 -> jump if not equal
 "#;
+
+
+pub const CHRISTMAS_TREE_WITH_TRUNK: &str = r#" // Editable
+ // Editable
+0 -> $counter
+@loop
+    $counter -> increase
+
+    $counter, 1 -> multiply -> $stars_size
+    19, $counter -> minus -> $space_size
+
+    " * ", $stars_size -> repeat -> $stars
+    " ", $space_size -> repeat -> $spaces
+
+    $spaces, $stars -> cat
+
+    "`*-", $stars_size -> repeat -> $stars
+    " ", $space_size -> repeat -> $spaces
+
+    $spaces, $stars -> cat
+@loop, $counter, 10 -> jump if not equal
+
+3 -> $c
+@loop
+    $c-> increase
+
+    $c, 2 -> multiply -> $stars_size
+    22, $c-> minus -> $space_size
+
+
+    "*", $stars_size -> repeat -> $stars
+    " ", $space_size -> repeat -> $spaces
+
+    $spaces, $stars -> cat
+
+@loop, $c, 7 -> jump if not equal
+"#;
