@@ -56,6 +56,7 @@ pub fn ExampleLoader<'a>(cx: Scope<'a>, cb: impl Fn(String) + 'a) -> Element {
             option{ "count_down" },
             option{ "christmas_tree" },
             option{ "is_prime" },
+            option{ "better_tree" },
         }
     })
 }

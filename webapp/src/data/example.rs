@@ -9,6 +9,7 @@ pub fn get_by_name(name: &str) -> &'static str{
         "count_down" => COUNT_DOWN,
         "is_prime" => IS_PRIME,
         "christmas_tree" => CHRISTMAS_TREE,
+        "better_tree" => CHRISTMAS_TREE_WITH_TRUNK,
         _=> "Example not found"
     }
 }
@@ -77,8 +78,7 @@ pub const CHRISTMAS_TREE: &str = r#" // Editable
 "#;
 
 
-pub const CHRISTMAS_TREE_WITH_TRUNK: &str = r#" // Editable
- // Editable
+pub const CHRISTMAS_TREE_WITH_TRUNK: &str = r#"// Editable
 0 -> $counter
 @loop
     $counter -> increase
