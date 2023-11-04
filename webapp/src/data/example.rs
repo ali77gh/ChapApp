@@ -33,22 +33,18 @@ pub const IS_PRIME: &str = r#" // Editable
 0 -> $c
 @loop
 
-    $i, 2 -> lt -> $temp
-    @if1, $temp -> jump_if_not
+    @if1, ($i, 2 -> lt) -> jump_if_not
         @is -> jump
     @if1
 
-    $i -> sqrt -> $end
-    $end -> to_int -> $end
+    $i -> sqrt -> to int -> $end
     $end -> increase
 
     2 -> $inner_i
     @inner_loop
-        $i, $inner_i -> mod -> $m
-        @is_not, $m, 0 -> jeq
+        @is_not, ($i, $inner_i -> mod), 0 -> jeq
         $inner_i -> increase
     @inner_loop, $inner_i, $end -> jneq
-
 
     @is
     $c -> increase
@@ -59,6 +55,7 @@ pub const IS_PRIME: &str = r#" // Editable
 
 ""
 "We have ", $c," prime numbers from 1 to ", $limit -> cat
+
 "#;
 
 
@@ -67,14 +64,11 @@ pub const CHRISTMAS_TREE: &str = r#" // Editable
 @loop
     $counter -> increase
 
-    $counter, 2 -> multiply -> $stars_size
-    10, $counter -> minus -> $space_size
-
-    "*", $stars_size -> repeat -> $stars
-    " ", $space_size -> repeat -> $spaces
-
-    $spaces, $stars -> cat
+    (" ", (10, $counter -> minus) -> repeat),
+    ("*", ($counter, 2 -> multiply) -> repeat) -> 
+    cat
 @loop, $counter, 10 -> jump if not equal
+
 "#;
 
 
