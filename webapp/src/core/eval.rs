@@ -1,26 +1,26 @@
-use super::eval_result::{EvalResult, clone_result};
+use chap::common::errors::ChapError;
 
+//TODO run this function async (sample: countdown with delays)
+pub fn eval(source: String) -> core::result::Result<String, ChapError> {
+    let mut error: Option<ChapError> = None;
+    let mut std_out = String::new();
 
-static mut TEMP: String = String::new();
-static mut EVAL_RESULT: EvalResult = EvalResult::Ok(String::new());
+    chap::runners::eval::eval(
+        source,
+        Box::new(|std_out_msg| {
+            std_out.push_str(std_out_msg);
+            std_out.push('\n');
+        }),
+        Box::new(|| {
+            // TODO standard js input box
+            return "".to_string();
+        }),
+        |err| error = Some(err),
+    );
 
-// unsafe code to move reslults out of pointer functions
-pub fn eval(source: String) -> EvalResult{ unsafe{ 
-
-    TEMP.clear();
-    EVAL_RESULT = EvalResult::Ok(String::new());
-
-    chap::eval::eval(source, |x|{
-        TEMP.push_str(x.clone());
-        TEMP.push_str("\n");
-        EVAL_RESULT = EvalResult::Ok(TEMP.clone());
-    }, ||{ 
-        return "".to_string(); 
-    }, ||{
-        // nothing to do
-    }, |err|{
-        EVAL_RESULT = EvalResult::Err(err);
-    });
-
-    clone_result(&EVAL_RESULT)
-}}
+    if let Some(err) = error {
+        Err(err)
+    } else {
+        Ok(std_out)
+    }
+}
