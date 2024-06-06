@@ -1,0 +1,47 @@
+[application]
+
+# App (Project) Name
+name = "chap-app"
+
+# Dioxus App Default Platform
+# desktop, web
+default_platform = "web"
+
+# `build` & `serve` dist path
+out_dir = "docs"
+
+# resource (assets) file folder
+asset_dir = "assets"
+
+[web.app]
+
+# HTML title tag content
+title = "chap-app"
+
+# The application will be served at domain.com/my_application/, so we need to modify the base_path to the path where the application will be served
+base_path = "ChapApp"
+
+[web.watcher]
+
+# when watcher trigger, regenerate the `index.html`
+reload_html = true
+
+# which files or dirs will be watcher monitoring
+watch_path = ["src", "assets"]
+
+# include `assets` in web platform
+[web.resource]
+
+# CSS style file
+
+# style = ["./main.css"]
+style = ["/ChapApp/main.css"]
+
+# Javascript code file
+script = []
+
+[web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
+script = []

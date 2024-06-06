@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>chap_app</title>
+  <title>chap-app</title>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="/ChapApp/main.css">
 
 </head>
 <body>
   <div id="main"></div>
   <script type="module">
-    import init from "/ChapApp/assets/dioxus/chapapp.js";
-    init("/ChapApp/assets/dioxus/chapapp_bg.wasm").then(wasm => {
+    import init from "/ChapApp/assets/dioxus/chap-app.js";
+    init("/ChapApp/assets/dioxus/chap-app_bg.wasm").then(wasm => {
       if (wasm.__wbindgen_start == undefined) {
         wasm.main();
       }
