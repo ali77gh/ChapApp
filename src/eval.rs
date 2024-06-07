@@ -11,10 +11,7 @@ pub fn eval(source: String) -> core::result::Result<String, ChapError> {
             std_out.push_str(std_out_msg);
             std_out.push('\n');
         }),
-        Box::new(|| {
-            // TODO standard js input box
-            return "".to_string();
-        }),
+        Box::new(|| prompt()),
         |err| error = Some(err),
     );
 
@@ -22,5 +19,15 @@ pub fn eval(source: String) -> core::result::Result<String, ChapError> {
         Err(err)
     } else {
         Ok(std_out)
+    }
+}
+
+fn prompt() -> String {
+    match web_sys::window() {
+        Some(window) => match window.prompt() {
+            Ok(Some(input_text)) => input_text,
+            _ => "".to_string(),
+        },
+        None => "".to_string(),
     }
 }

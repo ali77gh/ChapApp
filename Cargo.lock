@@ -187,6 +187,7 @@ dependencies = [
  "dioxus",
  "dioxus-logger",
  "tracing",
+ "web-sys",
 ]
 
 [[package]]
