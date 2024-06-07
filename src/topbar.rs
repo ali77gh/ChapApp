@@ -52,6 +52,7 @@ pub fn ExampleLoader(mut props: TopBarProps) -> Element {
             option { "hello_world" }
             option { "count_down" }
             option { "christmas_tree" }
+            option { "say_my_name" }
             option { "is_prime" }
             option { "better_tree" }
         }

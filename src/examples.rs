@@ -1,24 +1,26 @@
-
-pub fn get_default() -> &'static str{
+pub fn get_default() -> &'static str {
     HELLO_WORLD
 }
 
-pub fn get_by_name(name: &str) -> &'static str{
+pub fn get_by_name(name: &str) -> &'static str {
     match name {
         "hello_world" => HELLO_WORLD,
         "count_down" => COUNT_DOWN,
         "is_prime" => IS_PRIME,
         "christmas_tree" => CHRISTMAS_TREE,
         "better_tree" => CHRISTMAS_TREE_WITH_TRUNK,
-        _=> "Example not found"
+        "say_my_name" => SAY_MY_NAME,
+        _ => "Example not found",
     }
 }
 
-pub const HELLO_WORLD: &str = r#" // Editable
+pub const HELLO_WORLD: &str = r#"// Editable
+
 "Hello World!"
 "#;
 
-pub const COUNT_DOWN: &str = r#" // Editable
+pub const COUNT_DOWN: &str = r#"// Editable
+
 10 -> $counter
 @l
     $counter -> decrease
@@ -26,7 +28,8 @@ pub const COUNT_DOWN: &str = r#" // Editable
 @l, $counter, 0 -> jump_if_not_equal
 "#;
 
-pub const IS_PRIME: &str = r#" // Editable
+pub const IS_PRIME: &str = r#"// Editable
+
 100 -> $limit // change this
 
 1 -> $i
@@ -58,8 +61,8 @@ pub const IS_PRIME: &str = r#" // Editable
 
 "#;
 
+pub const CHRISTMAS_TREE: &str = r#"// Editable
 
-pub const CHRISTMAS_TREE: &str = r#" // Editable
 0 -> $counter
 @loop
     $counter -> increase
@@ -71,8 +74,15 @@ pub const CHRISTMAS_TREE: &str = r#" // Editable
 
 "#;
 
+pub const SAY_MY_NAME: &str = r#"// Editable
+
+input-> $name
+
+"Hello ", $name -> cat
+"#;
 
 pub const CHRISTMAS_TREE_WITH_TRUNK: &str = r#"// Editable
+
 0 -> $counter
 @loop
     $counter -> increase
