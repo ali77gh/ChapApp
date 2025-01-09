@@ -4,14 +4,23 @@ version = "0.1.0"
 authors = ["Ali Ghahremani <alighahremani1377@gmail.com>"]
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-
 chap = "2.2.2"
-dioxus = { version = "0.5", features = ["web"] }
+dioxus = { version = "0.6.1", features = ["web"] }
 
 # Debug
 tracing = "0.1.40"
 dioxus-logger = "0.5.0"
 web-sys = "0.3.69"
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"

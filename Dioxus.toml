@@ -7,8 +7,9 @@ name = "chap-app"
 # desktop, web
 default_platform = "web"
 
+# not working in 0.6.1
 # `build` & `serve` dist path
-out_dir = "docs"
+# out_dir = "docs"
 
 # resource (assets) file folder
 asset_dir = "assets"
@@ -34,8 +35,7 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 
-# style = ["./main.css"]
-style = ["/ChapApp/main.css"]
+style = ["./ChapApp/assets/main.css"]
 
 # Javascript code file
 script = []
