@@ -36,11 +36,7 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 
-# for local test
-# style = ["./assets/main.css"]
-
-# for hosting on github pages
-style = ["./ChapApp/assets/main.css"]
+style = ["./assets/main.css"]
 
 # Javascript code file
 script = []
