@@ -20,6 +20,7 @@ asset_dir = "assets"
 title = "chap-app"
 
 # The application will be served at domain.com/my_application/, so we need to modify the base_path to the path where the application will be served
+# comment this for local test
 base_path = "ChapApp"
 
 [web.watcher]
@@ -35,6 +36,10 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 
+# for local test
+# style = ["./assets/main.css"]
+
+# for hosting on github pages
 style = ["./ChapApp/assets/main.css"]
 
 # Javascript code file
