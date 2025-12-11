@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 chap = "2.5.0"
-dioxus = { version = "0.7.2", features = ["web"] }
+dioxus = { version = "0.7.1", features = ["web"] }
 
 # Debug
 tracing = "0.1.40"
