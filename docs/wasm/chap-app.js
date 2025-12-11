@@ -292,28 +292,22 @@ if (!('encodeInto' in cachedTextEncoder)) {
 
 let WASM_VECTOR_LEN = 0;
 
-function _ZN12wasm_bindgen7convert8closures1_6invoke17h5c45c0734a081b25E(arg0, arg1, arg2) {
-    _assertNum(arg0);
-    _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h5c45c0734a081b25E(arg0, arg1, arg2);
-}
-
 function _ZN12wasm_bindgen7convert8closures1_6invoke17h0f910489ad32102aE(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
     wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h0f910489ad32102aE(arg0, arg1, arg2);
 }
 
-function _ZN12wasm_bindgen7convert8closures1_6invoke17h0443621c0016db1dE(arg0, arg1, arg2) {
-    _assertNum(arg0);
-    _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h0443621c0016db1dE(arg0, arg1, arg2);
-}
-
 function _ZN12wasm_bindgen7convert8closures1_1_6invoke17hc45670ffde462b7bE(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
     wasm._ZN12wasm_bindgen7convert8closures1_1_6invoke17hc45670ffde462b7bE(arg0, arg1, arg2);
+}
+
+function _ZN12wasm_bindgen7convert8closures1_6invoke17h5c45c0734a081b25E(arg0, arg1, arg2) {
+    _assertNum(arg0);
+    _assertNum(arg1);
+    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h5c45c0734a081b25E(arg0, arg1, arg2);
 }
 
 function _ZN12wasm_bindgen7convert8closures1_6invoke17h7b750ca1a8f3e5f7E(arg0, arg1, arg2) {
@@ -326,6 +320,12 @@ function _ZN12wasm_bindgen7convert8closures1_6invoke17hdce8ff92d1c1278eE(arg0, a
     _assertNum(arg0);
     _assertNum(arg1);
     wasm._ZN12wasm_bindgen7convert8closures1_6invoke17hdce8ff92d1c1278eE(arg0, arg1);
+}
+
+function _ZN12wasm_bindgen7convert8closures1_6invoke17h0443621c0016db1dE(arg0, arg1, arg2) {
+    _assertNum(arg0);
+    _assertNum(arg1);
+    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h0443621c0016db1dE(arg0, arg1, arg2);
 }
 
 function _ZN12wasm_bindgen7convert8closures1_6invoke17h14be53e670d76248E(arg0, arg1) {
@@ -2057,7 +2057,7 @@ export default __wbg_init;
 globalThis.__wasm_split_main_initSync = initSync;
 
 // Actually perform the load
-__wbg_init({module_or_path: "/./wasm/chap-app_bg.wasm"}).then((wasm) => {
+__wbg_init({module_or_path: "/ChapApp/wasm/chap-app_bg.wasm"}).then((wasm) => {
     // assign this module to be accessible globally
     globalThis.__dx_mainWasm = wasm;
     globalThis.__dx_mainInit = __wbg_init;
