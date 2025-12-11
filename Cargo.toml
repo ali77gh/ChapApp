@@ -5,8 +5,8 @@ authors = ["Ali Ghahremani <alighahremani1377@gmail.com>"]
 edition = "2021"
 
 [dependencies]
-chap = "2.2.2"
-dioxus = { version = "0.6.1", features = ["web"] }
+chap = "2.5.0"
+dioxus = { version = "0.7.2", features = ["web"] }
 
 # Debug
 tracing = "0.1.40"
@@ -26,10 +26,10 @@ inherits = "dev"
 inherits = "dev"
 
 [profile.release]
-opt-level = "z"
-debug = false
-lto = true
-codegen-units = 1
-panic = "abort"
-strip = true
-incremental = false
+# opt-level = "z"
+# debug = false
+# lto = true
+# codegen-units = 1
+# panic = "abort"
+# strip = true
+# incremental = false
