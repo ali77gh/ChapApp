@@ -21,7 +21,7 @@ title = "chap-app"
 
 # The application will be served at domain.com/my_application/, so we need to modify the base_path to the path where the application will be served
 # comment this for local test
-# base_path = "ChapApp"
+base_path = "ChapApp"
 
 [web.watcher]
 
